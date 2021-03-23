@@ -1,6 +1,10 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'maven'
+
+group = 'com.github.ananthrajsingh'
+
 
 android {
     compileSdkVersion 30
