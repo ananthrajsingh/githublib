@@ -29,7 +29,7 @@ android {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '7.0'
+    gradleVersion = '6.3'
 }
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
