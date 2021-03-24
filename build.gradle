@@ -5,6 +5,13 @@ apply plugin: 'maven'
 
 group = 'com.github.ananthrajsingh'
 
+sourceCompatibility = 1.8 // java 8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
 
 android {
     compileSdkVersion 30
@@ -29,8 +36,9 @@ android {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '6.3'
+    gradleVersion = '6.8.3'
 }
+
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -55,3 +63,8 @@ dependencies {
     annotationProcessor "com.github.bumptech.glide:compiler:4.11.0"
 
 }
+//
+//wrapper {
+//    gradleVersion = "6.8.3"
+//    distributionType = Wrapper.DistributionType.ALL
+//}
