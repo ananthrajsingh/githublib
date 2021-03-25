@@ -1,0 +1,3 @@
+include ':githublib'
+include ':app'
+rootProject.name = "Github People"
