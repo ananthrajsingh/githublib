@@ -4,22 +4,15 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'maven'
 
 group = 'com.github.ananthrajsingh'
-
-sourceCompatibility = 1.8 // java 8
-targetCompatibility = 1.8
+version = '1.0'
 
 repositories {
     mavenCentral()
+    google()
+    jcenter()
+    maven { url "https://jitpack.io" }
 }
 
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:1.1.1'
-    }
-}
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
@@ -40,10 +33,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-}
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '6.8.3'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 }
 
 dependencies {
@@ -56,8 +53,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     // Moshi
-//    implementation "com.squareup.moshi:moshi:$version_moshi"
-//    implementation "com.squareup.moshi:moshi-kotlin:$version_moshi"
     implementation "com.squareup.moshi:moshi:1.9.2"
     implementation "com.squareup.moshi:moshi-kotlin:1.9.2"
 
